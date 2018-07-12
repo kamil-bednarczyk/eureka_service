@@ -22,6 +22,6 @@ services:
 #   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 
 after_success:
-  - mvn clean install -DskipTests dockerfile:build
+  - mvn dockerfile:build
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
   - docker push kamilbednarczyk/eureka_service
